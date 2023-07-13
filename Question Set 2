@@ -1,0 +1,545 @@
+1. What’s Box Model in CSS ? 
+Ans: The box model consists of four layers or components that surround the content of an element:
+
+Content: This is the actual content of the element, such as text, images, or other HTML elements. It has a width and height defined by its content.
+
+Padding: The padding is a transparent area surrounding the content, creating space between the content and the border. It can be set using the padding property 
+and can have different values for each side (top, right, bottom, left).
+
+Border: The border is a line that surrounds the padding and content of an element. It can be styled using properties such as border-width, border-color, and border
+-style. Like padding, the border can have different values for each side.
+
+Margin: The margin is the transparent area that surrounds the border, creating space between the element and other elements in the layout. It can be set using the
+margin property and can also have different values for each side.
+
+2. What are the Different Types of Selectors in CSS & what are the advantages of them?
+Ans: Type selectors: These selectors target elements based on their tag names. For example, the selector p targets all <p> elements in the document. Type selectors
+are straightforward and can be useful for applying styles to specific types of elements.
+Advantages:
+
+They are easy to understand and use.
+They can quickly target all elements of a specific type.
+Class selectors: Class selectors target elements based on their assigned class attribute. They are denoted by a dot (.) followed by the class name. For example, 
+the selector .highlight targets all elements with the class "highlight" assigned to them. Multiple elements can share the same class, allowing you to apply the 
+same styles to different elements.
+Advantages:
+
+They offer flexibility in applying styles to multiple elements without affecting others.
+They allow for easy styling of specific groups of elements.
+ID selectors: ID selectors target elements based on their unique ID attribute. They are denoted by a hash (#) followed by the ID name. For example, the selector 
+#logo targets the element with the ID "logo". IDs must be unique within an HTML document.
+Advantages:
+
+They provide a way to target and style a specific element uniquely.
+They are useful when you need to apply specific styles or JavaScript behaviors to a single element.
+Attribute selectors: Attribute selectors target elements based on their attribute values. They can be used to select elements with specific attribute values or
+certain attribute patterns. For example, the selector [type="submit"] targets all elements with the attribute type set to "submit".
+Advantages:
+
+They allow for more specific targeting based on attribute values.
+They provide flexibility in selecting elements based on different attribute patterns.
+Descendant selectors: Descendant selectors target elements that are descendants of other elements. They are specified by separating selectors with a space. For
+example, the selector ul li targets all <li> elements that are descendants of a <ul> element.
+Advantages:
+
+They provide a way to target elements based on their hierarchical relationship within the document structure.
+They allow for more precise styling of nested elements.
+Pseudo-classes and pseudo-elements: Pseudo-classes target elements based on their state or position within the document. Examples include :hover, :focus, 
+:first-child, and :nth-child(). Pseudo-elements target specific parts of an element, such as ::before and ::after, allowing you to insert content dynamically.
+Advantages:
+
+They enable the styling of elements based on user interaction or specific positions within the document.
+They allow for the creation of dynamic content using pseudo-elements.
+
+3. What is VW/VH ?
+Ans: vw and vh are units of measurement in CSS that represent a percentage of the viewport width (vw) or viewport height (vh).
+
+vw (viewport width): 1 vw is equal to 1% of the viewport width. For example, if the viewport width is 1000 pixels, 1 vw is equivalent to 10 pixels (1% of 1000).
+
+vh (viewport height): 1 vh is equal to 1% of the viewport height. For example, if the viewport height is 800 pixels, 1 vh is equivalent to 8 pixels (1% of 800).
+
+These units are useful for creating responsive and dynamic designs that adapt to different screen sizes. By using vw and vh units, you can size elements relative
+to the viewport dimensions rather than fixed pixel values.
+
+4. Whats difference between Inline, Inline Block and block ?
+Ans: 
+In CSS, there are three display property values that define how elements are displayed and interact with other elements: inline, inline-block, and block. Here's
+an explanation of the differences between these display types:
+
+Inline:
+Inline elements do not start on a new line; they flow within the text content.
+They only take up the space necessary for their content, so you cannot set width or height for inline elements.
+Margin and padding can be applied horizontally (left and right), but not vertically (top and bottom).
+Examples of inline elements are <span>, <a>, <strong>, and <em>.
+Inline-block:
+Inline-block elements are similar to inline elements in that they flow with the text content.
+However, they behave like block elements in terms of being able to set width and height.
+They allow vertical margins and padding to be applied.
+Inline-block elements will be displayed next to each other if there is enough space horizontally.
+Examples of inline-block elements are <img>, <input>, and <button>.
+Block:
+Block elements start on a new line and occupy the full width available by default.
+They stack vertically, one below the other.
+Block elements allow you to set width, height, margins, and padding in any direction.
+Examples of block elements are <div>, <p>, <h1> to <h6>, and <section>.
+
+5.How is Border-box different from Content Box?
+Ans: Content-box (default box-sizing):
+In the content-box model, an element's width and height are calculated based on its content's width and height alone.
+The padding, border, and margin are added to the specified width and height, resulting in the total outer dimensions of the element.
+In this model, if you set a width of 200 pixels for an element, the padding, border, and margin will be added to that width.
+This can sometimes lead to unexpected layout issues, especially when dealing with box sizing and calculations.
+
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+
+
+The terms "border-box" and "content-box" refer to two different box-sizing models in CSS that determine how an element's width and height are calculated, taking
+into account the content, padding, border, and margin. Here's an explanation of the differences between the two:
+
+Content-box (default box-sizing):
+In the content-box model, an element's width and height are calculated based on its content's width and height alone.
+The padding, border, and margin are added to the specified width and height, resulting in the total outer dimensions of the element.
+In this model, if you set a width of 200 pixels for an element, the padding, border, and margin will be added to that width.
+This can sometimes lead to unexpected layout issues, especially when dealing with box sizing and calculations.
+Example:
+
+css
+Copy code
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 20px;
+}
+Border-box:
+In the border-box model, an element's width and height include the content, padding, and border.
+The specified width and height represent the total dimensions of the element, including padding and border.
+The margin is added outside the border, as in the content-box model.
+With border-box, if you set a width of 200 pixels for an element, the padding and border will be subtracted from that width, resulting in the content area's size
+being 200 pixels.
+
+.box {
+  box-sizing: border-box;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+6. What’s z-index and How does it Function ?
+Ans: The z-index property in CSS controls the stacking order of positioned elements along the z-axis, which determines how elements are layered or overlapped in a
+three-dimensional space. The z-index value can be set to an integer, where a higher value brings an element closer to the viewer, while a lower value moves it
+further back.
+
+Here's how z-index functions:
+
+Stacking Context:
+
+Each positioned element with a z-index value other than auto creates a new stacking context.
+Elements within the same stacking context are stacked relative to each other, and the stacking context with the highest z-index value will be rendered on top.
+Parent-Child Relationship:
+
+The z-index property applies to positioned elements (i.e., those with position: relative, position: absolute, or position: fixed).
+If an element has a higher z-index value than its parent, it can be rendered on top of its parent and any other siblings within the same stacking context.
+However, this relationship only applies within the parent stacking context. Siblings in different stacking contexts are not affected by z-index values.
+Stacking Order:
+
+By default, positioned elements have a z-index value of auto, which means they participate in the standard stacking order based on their order in the HTML
+document flow.
+Elements with a higher z-index value will appear on top of elements with lower z-index values within the same stacking context.
+If multiple elements have the same z-index value, the order in the HTML document flow determines their stacking order.
+
+.parent {
+  position: relative;
+  z-index: 1;
+}
+
+.child {
+  position: absolute;
+  z-index: 2;
+}
+
+.sibling {
+  position: relative;
+  z-index: 2;
+}
+
+7.What’s Grid & Flex and difference between them?
+Ans: Key differences:
+
+Layout model:
+Flexbox is a one-dimensional layout model, either in rows or columns.
+Grid is a two-dimensional layout model, with rows and columns forming a grid structure.
+Direction of control:
+Flexbox focuses on the alignment and distribution of elements along a single axis (either horizontally or vertically).
+Grid allows for precise control over both row and column placement simultaneously.
+Grid structure:
+Flexbox doesn't have an inherent grid structure; it's more focused on the alignment and ordering of items within a container.
+Grid provides a grid structure, allowing for the definition and control of rows and columns.
+Complexity:
+Flexbox is simpler and easier to grasp, with fewer properties and concepts to understand.
+Grid offers a more powerful and complex layout system, allowing for advanced grid-based layouts.
+In practice, Flexbox is commonly used for simpler and more straightforward layouts, where elements need to be aligned or distributed along a single axis. Grid is
+ideal for more complex and grid-based layouts, where elements need to be positioned precisely within a grid structure.
+
+8. Difference between absolute and relative and sticky and fixed position explain with example.
+Ans: Absolute Position:
+Elements with position: absolute are positioned relative to their closest positioned ancestor (ancestor with a position value other than static), or the initial 
+containing block if there is no positioned ancestor.
+Absolute positioned elements are taken out of the normal document flow and don't affect the positioning of other elements.
+The position is set using the top, right, bottom, and left properties.
+Example:
+.container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.absolute-element {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+
+
+Sure! Here's an explanation of the differences between absolute, relative, sticky, and fixed positions in CSS, along with examples:
+
+Absolute Position:
+Elements with position: absolute are positioned relative to their closest positioned ancestor (ancestor with a position value other than static), or the initial 
+containing block if there is no positioned ancestor.
+Absolute positioned elements are taken out of the normal document flow and don't affect the positioning of other elements.
+The position is set using the top, right, bottom, and left properties.
+Example:
+css
+Copy code
+.container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.absolute-element {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+In the above example, the .absolute-element is positioned 20 pixels from the top and 50 pixels from the left of its closest positioned ancestor, which is the 
+.container element.
+
+Relative Position:
+Elements with position: relative are positioned relative to their normal position within the document flow.
+The element retains its space in the normal flow, but its position can be adjusted using the top, right, bottom, and left properties.
+Other elements are not affected by a relatively positioned element's movement.
+
+.relative-element {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+
+9.Build Periodic Table.
+
+Html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="periodictable.css">
+</head>
+<body>
+    <div role="region" tabindex="0">
+        <ol id="periodic-table">
+            <li class="red" title="Hydrogen">1 <br> H</li>
+            <li class="red" title="Helium">He</li>
+            <li class="red" title="Lithium">Li</li>
+            <li class="red" title="Beryllium">Be</li>
+            <li class="yellow" title="Boron">B</li>
+            <li class="yellow" title="Carbon">C</li>
+            <li class="yellow" title="Nitrogen">N</li>
+            <li class="yellow" title="Oxygen">O</li>
+            <li class="yellow" title="Fluorine">F</li>
+            <li class="yellow" title="Neon">Ne</li>
+            <li class="red" title="Sodium">Na</li>
+            <li class="red" title="Magnesium">Mg</li>
+            <li class="yellow" title="Aluminium">Al</li>
+            <li class="yellow" title="Silicon">Si</li>
+            <li class="yellow" title="Phosphorus">P</li>
+            <li class="yellow" title="Sulfur">S</li>
+            <li class="yellow" title="Chlorine">Cl</li>
+            <li class="yellow" title="Argon">Ar</li>
+            <li class="red"title="Potassium">K</li>
+            <li class="red" title="Calcium">Ca</li>
+            <li class="blue" title="Scandium">Sc</li>
+            <li class="blue" title="Titanium">Ti</li>
+            <li class="blue" title="Vanadium">V</li>
+            <li class="blue" title="Chromium">Cr</li>
+            <li class="blue" title="Manganese">Mn</li>
+            <li class="blue" title="Iron">Fe</li>
+            <li class="blue" title="Cobalt">Co</li>
+            <li class="blue" title="Nickel">Ni</li>
+            <li class="blue" title="Copper">Cu</li>
+            <li class="blue" title="Zinc">Zn</li>
+            <li class="yellow" title="Gallium">Ga</li>
+            <li class="yellow" title="Germanium">Ge</li>
+            <li class="yellow" title="Arsenic">As</li>
+            <li class="yellow" title="Selenium">Se</li>
+            <li class="yellow" title="Bromine">Br</li>
+            <li class="yellow" title="Krypton">Kr</li>
+            <li class="red" title="Rubidium">Rb</li>
+            <li class="red" title="Strontium">Sr</li>
+            <li class="blue" title="Yttrium">Y</li>
+            <li class="blue" title="Zirconium">Zr</li>
+            <li class="blue" title="Niobium">Nb</li>
+            <li class="blue" title="Molybdenum">Mo</li>
+            <li class="blue" title="Technetium">Tc</li>
+            <li class="blue" title="Ruthenium">Ru</li>
+            <li class="blue" title="Rhodium">Rh</li>
+            <li class="blue" title="Palladium">Pd</li>
+            <li class="blue" title="Silver">Ag</li>
+            <li class="blue" title="Cadmium">Cd</li>
+            <li class="yellow" title="Indium">In</li>
+            <li class="yellow" title="Tin">Sn</li>
+            <li class="yellow" title="Antimony">Sb</li>
+            <li class="yellow" title="Tellurium">Te</li>
+            <li class="yellow" title="Iodine">I</li>
+            <li class="yellow" title="Xenon">Xe</li>
+            <li class="red" title="Caesium">Cs</li>
+            <li class="red" title="Barium">Ba</li>
+            <li class="blue" title="Lanthanum">La</li>
+            <li title="Cerium">Ce</li>
+            <li title="Praseodymium">Pr</li>
+            <li title="Neodymium">Nd</li>
+            <li title="Promethium">Pm</li>
+            <li title="Samarium">Sm</li>
+            <li title="Europium">Eu</li>
+            <li title="Gadolinium">Gd</li>
+            <li title="Terbium">Tb</li>
+            <li title="Dysprosium">Dy</li>
+            <li title="Holmium">Ho</li>
+            <li title="Erbium">Er</li>
+            <li title="Thulium">Tm</li>
+            <li title="Ytterbium">Yb</li>
+            <li title="Lutetium">Lu</li>
+            <li class="blue" title="Hafnium">Hf</li>
+            <li class="blue" title="Tantalum">Ta</li>
+            <li class="blue" title="Tungsten">W</li>
+            <li class="blue" title="Rhenium">Re</li>
+            <li class="blue" title="Osmium">Os</li>
+            <li class="blue" title="Iridium">Ir</li>
+            <li class="blue" title="Platinum">Pt</li>
+            <li class="blue" title="Gold">Au</li>
+            <li class="blue" title="Mercury">Hg</li>
+            <li class="yellow" title="Thallium">Tl</li>
+            <li class="yellow" title="Lead">Pb</li>
+            <li class="yellow" title="Bismuth">Bi</li>
+            <li class="yellow" title="Polonium">Po</li>
+            <li class="yellow" title="Astatine">At</li>
+            <li class="yellow" title="Radon">Rn</li>
+            <li class="red" title="Francium">Fr</li>
+            <li class="red" title="Radium">Ra</li>
+            <li class="blue" title="Actinium">Ac</li>
+            <li title="Thorium">Th</li>
+            <li title="Protactinium">Pa</li>
+            <li title="Uranium">U</li>
+            <li title="Neptunium">Np</li>
+            <li title="Plutonium">Pu</li>
+            <li title="Americium">Am</li>
+            <li title="Curium">Cm</li>
+            <li title="Berkelium">Bk</li>
+            <li title="Californium">Cf</li>
+            <li title="Einsteinium">Es</li>
+            <li title="Fermium">Fm</li>
+            <li title="Mendelevium">Md</li>
+            <li title="Nobelium">No</li>
+            <li title="Lawrencium">Lr</li>
+            <li class="blue" title="Rutherfordium">Rf</li>
+            <li class="blue" title="Dubnium">Db</li>
+            <li class="blue" title="Seaborgium">Sg</li>
+            <li class="blue" title="Bohrium">Bh</li>
+            <li class="blue" title="Hassium">Hs</li>
+            <li class="blue" title="Meitnerium">Mt</li>
+            <li class="blue" title="Darmstadtium">Ds</li>
+            <li class="blue" title="Roentgenium">Rg</li>
+            <li class="blue" title="Copernicium">Cn</li>
+            <li class="yellow" title="Nihonium">Nh</li>
+            <li class="yellow" title="Flerovium">Fl</li>
+            <li class="yellow" title="Moscovium">Mc</li>
+            <li class="yellow" title="Livermorium">Lv</li>
+            <li class="yellow" title="Tennessine">Ts</li>
+            <li class="yellow" title="Oganesson">Og</li>
+        </ol>
+    </div>
+</body>
+</html>
+
+Css
+
+#periodic-table
+{
+	display: grid;
+	grid-template-columns: repeat(18, 1fr);
+	grid-template-rows: repeat(7, 1fr)
+		[separator-start] 0.25fr
+		[separator-end lanthanides-start] 1fr
+		[lanthanides-end actinides-start] 1fr
+		[actinides-end];
+	grid-gap: 0.125em;
+	list-style: none;
+	padding: 0;
+	font: 1em/1 Calibri, sans-serif;
+	counter-reset: atomic-number;
+}
+
+#periodic-table li
+{
+	color: black;
+	padding: 0.5em 0.125em;
+	text-align: center;
+	counter-increment: atomic-number;
+}
+
+#periodic-table li:nth-of-type(2)
+{
+	grid-column: 18;
+}
+
+#periodic-table li:nth-of-type(5),
+#periodic-table li:nth-of-type(13)
+{
+	grid-column: 13;
+}
+
+#periodic-table li:nth-of-type(n+58):nth-of-type(-n+71)
+{
+	grid-row: lanthanides;
+}
+
+#periodic-table li:nth-of-type(n+90):nth-of-type(-n+103)
+{
+	grid-row: actinides;
+}
+
+#periodic-table::before
+{
+	content: '';
+	grid-row: lanthanides / actinides;
+	grid-column: 1 / span 3;
+}
+
+@media (min-width: 60em)
+{
+	#periodic-table li::before
+	{
+		content: counter(atomic-number, decimal);
+		font-feature-settings: 'subs';
+	}
+}
+
+@media (min-width: 72em)
+{
+	#periodic-table li
+	{
+		font-size: 1.2em;
+	}
+	
+	#periodic-table li::after
+	{
+		content: attr(title);
+		display: block;
+		margin-top: 0.5em;
+		font-size: 0.5em;
+	}
+}
+
+@media (min-width: 90em)
+{
+	#periodic-table li
+	{
+		font-size: 1.5em;
+	}
+}
+li.red{
+    background-color: rgb(241, 114, 114);
+}
+li.blue{
+    background-color: blue;
+}
+li.yellow{
+    background-color: yellow;
+}
+li{
+    background-color: rgb(107, 169, 16);
+}
+
+10. Build Responsive Layout both desktop and mobile and Tablet.
+Html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reslay.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box1">Box 1</div>
+        <div class="box2">Box 2</div>
+        <div class="box3">Box 3</div>
+      </div>
+      
+</body>
+</html>
+
+Css
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .box1 {
+    background-color: green;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .box2 {
+    background-color: red;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .box3 {
+    background-color: yellow;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  /* Tablet Styles */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 480px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
